@@ -1,6 +1,30 @@
-.pizza_logo {
+body {
+    background-color: white;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1rem;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  li a {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
+    background-color: #dddddd;
+  }
+
+a:hover {
+background-color: yellow;
+}
+
+.container { 
+    display: flex;
+    justify-content: center;
+}
+
+.item {
+    width: 400px;
+    margin: 0 auto;
 }
