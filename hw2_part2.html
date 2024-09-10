@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CSM JavaScript Homework Assignment 2 - Part 2">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>CIS 114 JavaScript Homework Assignment 2 - Part 2</title>
+    <!-- 
+        For Part 2:
+        Create a webpage with a form that will have:
+        * three input boxes for the user to type three integers (numbers)
+        * a button to process the data (numbers) typed by the user
+        * a button to clear the form
+        * a textarea to display the results of the process (or it can be a div or paragraph element)
+        You will write the JavaScript code that will:
+        * receive the data from those three input boxes for the three integers after the user click on the button to process the data
+        * you will calculate the sum, the average, and the product of the three integers
+        * you will also calculate the smallest and the largest of the three integers typed
+        TIP: For finding the smallest and largest number, use the Math Object Methods of min and max
+        * you will present the results of these calculations in the text area - DO NOT USE ALERT BOXES!!!
+        * your script should not present any result if the user does not type NUMBERS in the input boxes and, instead, you should present an error message in the textarea
+    -->
+</head>
+
+<body>
+    <div class="container">
+        <div class="item">
+
+            <h1>CIS 114 JavaScript</h1>
+            <h2>Fall 2024 - Homework 2</h2>
+            <h3>Part 2 - Calculation</h3>
+
+            <!-- User input form -->
+            <form id="calcForm">
+                <input type="text" id="num1" placeholder="Enter a number"><br>
+                <input type="text" id="num2" placeholder="Enter a number"><br>
+                <input type="text" id="num3" placeholder="Enter a number"><br>
+                
+                <button type="button" onclick="calculate()">Submit</button>
+                <button type="reset">Clear</button>
+            </form>
+
+            <div id="output"></div>
+
+            <script>
+                function calculate() {
+                    // parse input into integer
+                    var num1 = parseInt(document.getElementById("num1").value);
+                    var num2 = parseInt(document.getElementById("num2").value);
+                    var num3 = parseInt(document.getElementById("num3").value);
+
+                    // Check if any of the user entry is not a number
+                    // Request user to enter a number again in the textbox
+                    if (isNaN(num1) || isNaN(num2) || isNaN(num3)) {
+                        document.getElementById("output").innerText = "Invalid Entry!  Please enter a number!";
+                        return;
+                    }
+
+                    //calculate the sum of the three number
+                    var sum = num1 + num2 + num3;
+
+                    //calculate the average of the three number
+                    var average = sum / 3;
+
+                    //calculate the product of the three number
+                    var product = num1 * num2 * num3;
+
+                    //calculate the smallest number
+                    var min = Math.min(num1, num2, num3);
+
+                    // calculate the largest number
+                    var max = Math.max(num1, num2, num3);
+
+                    // generate output
+                    document.getElementById("output").innerText = 
+                        `Sum: ${sum} 
+                        Average: ${average} 
+                        Product: ${product} 
+                        Smallest Number: ${min} 
+                        Largest Number: ${max}`;
+                }
+            </script>
+
+            <nav>
+                <br><a href="hw2.html">Back to Homework 2</a>
+            </nav>
+        </div>
+    </div>
+</body>
+</html>
